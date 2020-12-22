@@ -59,8 +59,8 @@ def desp_no_ideal_op(u,a,b,c,pmin,pmax, pd):
     Iter = 0.0
 
     # Calculos iniciais:
-    while(abs(delP) > 0.000000001):
-        print("\t\t>>While 01 erro: ", delP)
+    while(abs(delP) > 0.00001):
+        #print("\t\t>>While 01 erro: ", delP)
         soma = 0.0
         Lambda = Lambda + delL
 
@@ -121,7 +121,7 @@ def desp_no_ideal_op(u,a,b,c,pmin,pmax, pd):
     soma = 0.0
 
     # Ajusta a geração para que não ocorra mais violação nos limites da unidade:
-    while(abs(delP)>0.00000000001 and violado==1):
+    while(abs(delP)>0.000000001 and violado==1):
         #print("\t\t>>While 02 erro: ", delP)
         Iter = Iter + 1
         Lambda = Lambda + delL
@@ -189,6 +189,16 @@ def desp_no_ideal_op(u,a,b,c,pmin,pmax, pd):
 
     return resultado
 
+def variacao_de_p(var):
+    a = var
+
+def limite_elevacao(p,pmax):
+    UR = pmax - p
+
+
+def limite_diminuicao(p,pmin):
+    DR = p - pmin
+
 
 
 
@@ -249,3 +259,6 @@ if __name__ == '__main__':
     despacho_economico(data, 1500)
 
     #teste_desp(25,data)
+    #exemplo = np.random.randint(50,9999,size = 3)
+    #print(normalize(exemplo))
+
